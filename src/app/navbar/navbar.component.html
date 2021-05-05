@@ -1,0 +1,42 @@
+<nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" [routerLink]="'home'">
+      <img src="/assets/img/logo.jpg" width="112" height="28" />
+    </a>
+
+    <a
+      role="button"
+      [class]="shouldShowMenu()"
+      class="navbar-burger"
+      (click)="toggleMenu()"
+      aria-label="menu"
+      aria-expanded="false"
+      data-target="navbarBasicExample"
+    >
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbarBasicExample" class="navbar-menu" [class]="shouldShowMenu()">
+    <div class="navbar-start">
+      <a
+        *ngFor="let link of navbarLinks"
+        [routerLink]="link.href"
+        class="navbar-item"
+        >{{ link.copy }}</a
+      >
+    </div>
+
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="buttons">
+          <a class="button is-primary">
+            <strong>Buy Now</strong>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
